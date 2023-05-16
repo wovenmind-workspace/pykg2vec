@@ -31,3 +31,5 @@ ENV PATH="/root/.local/bin:${PATH}"
 # Create conda environment
 RUN conda install -n base python=3.11 pandas numpy pytorch torchvision torchaudio cpuonly -c pytorch -y
 
+RUN mkdir -p /home/arkdu/pykg2vec/dataset
+RUN ln -s /home/arkdu/pykg2vec/dataset /dataset
