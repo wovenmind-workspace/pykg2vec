@@ -1,3 +1,6 @@
+import sys
+print(sys.executable)
+
 '''
 ================================================
 Inference task for one KGE method (inference.py)
@@ -28,13 +31,14 @@ from pykg2vec.utils.trainer import Trainer
 
 def main():
     # getting the customized configurations from the command-line arguments.
-    args = KGEArgParser().get_args(sys.argv[1:])
+    args = KGEArgParser().get_args(['-mn', 'TransE', '-ld', 'examples/pretrained/TransE'])
 
     # Extracting the corresponding model config and definition from Importer().
     config_def, model_def = Importer().import_model_config(args.model_name.lower())
     config = config_def(args)
     model = model_def(**config.__dict__)
 
+    print(model)
     # Create the model and load the trained weights.
     trainer = Trainer(model, config)
     trainer.build_model()
