@@ -89,6 +89,7 @@ class Trainer:
     def __init__(self, model, config):
         self.model = model
         self.config = config
+        self.config.device = "cpu"
 
         self.best_metric = None
         self.monitor = None
@@ -107,7 +108,7 @@ class Trainer:
 
         self.evaluator = Evaluator(self.model, self.config)
 
-        self.model.to(self.config.device)
+        self.model.to("cpu")
 
         if self.config.optimizer == "adam":
             self.optimizer = optim.Adam(

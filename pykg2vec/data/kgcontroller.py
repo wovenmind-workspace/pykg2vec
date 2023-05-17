@@ -127,7 +127,7 @@ class KnowledgeGraph:
     """
     _logger = Logger().get_logger(__name__)
 
-    def __init__(self, dataset='Freebase15k', custom_dataset_path=None):
+    def __init__(self, dataset='Freebase15k', custom_dataset_path="/dataset/FB15k"):
 
         self.dataset_name = dataset
 
@@ -258,7 +258,7 @@ class KnowledgeGraph:
     def read_cache_data(self, key):
         """Function to read the cached dataset from the memory"""
         if key == 'triplets_train':
-            with open(str(self.dataset.cache_triplet_paths['train']), 'rb') as f:
+            with open("/dataset/", 'rb') as f:
                 triplets = pickle.load(f)
 
                 return triplets

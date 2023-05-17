@@ -25,7 +25,7 @@ class Logger(Singleton):
 
     def __init__(self):
         self._loggers = {}
-        self._log_level = logging.INFO
+        self._log_level = logging.DEBUG
         self._lock = threading.Lock()
 
     def get_logger(self, name):

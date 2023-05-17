@@ -241,6 +241,7 @@ class Evaluator:
     def __init__(self, model, config, tuning=False):
         self.model = model
         self.config = config
+        self.config.device = "cpu"
         self.tuning = tuning
         self.test_data = self.config.knowledge_graph.read_cache_data('triplets_test')
         self.eval_data = self.config.knowledge_graph.read_cache_data('triplets_valid')
